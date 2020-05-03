@@ -14,7 +14,7 @@ namespace DiscordTerminatorV2
             using(HttpClient client = new HttpClient()) {
                 client.DefaultRequestHeaders.Add("Authorization", token);
 
-                var response = client.PatchAsync("https://discordapp.com/api/v6/users/@me", new StringContent("{\"date_of_birth\":\"2016-2-14\"}"));
+                var response = client.PatchAsync("https://discordapp.com/api/v6/users/@me", new StringContent("{\"date_of_birth\":\"2016-2-14\"}", Encoding.UTF8, "application/json"));
 
                 return response.Result.StatusCode == System.Net.HttpStatusCode.OK;
             }
